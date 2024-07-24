@@ -1,21 +1,28 @@
-variable "resource_group_name" {
-  description = "A container that holds related resources for an Azure solution"
-  default     = ""
+variable resource_group_name {
+  default = null
 }
 
-variable "location" {
-  description = "The location/region to keep all your network resources. To get the list of all locations with table format from azure cli, run 'az account list-locations -o table'"
-  default     = ""
+variable location {
+  default = "eastus"
 }
 
-variable "virtual_network_name" {
-  description = "The name of the virtual network"
-  default     = ""
+variable "obj_virtual_network" {
+  description = "Object representing a virtual_network resource"
+  type        = object({
+      name     = string
+      id       = string
+  })
+  default     = null
 }
 
-variable "subnet_name" {
-  description = "The name of the subnet to use in VM scale set"
-  default     = ""
+variable "obj_subnet" {
+  description = "Object representing a virtual_subnetwork resource"
+  type        = object({
+      name     = string
+      id       = string
+      address_prefixes = list(string)
+  })
+  default     = null
 }
 
 variable "random_password_length" {
@@ -744,7 +751,7 @@ variable "log_analytics_workspace_primary_shared_key" {
   default     = null
 }
 
-variable "storage_account_name" {
+variable "storage_account_id" {
   description = "The name of the hub storage account to store logs"
   default     = null
 }
