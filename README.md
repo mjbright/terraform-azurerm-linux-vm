@@ -1,4 +1,10 @@
-# Azure Virtual Machines Terraform Module
+# Azure Linux Virtual Machine Terraform Module
+
+This module is an updated/simplified version of the module https://github.com/betarabbit/terraform-terragrunt-azure-example
+
+The module - as is - is intended for use in training labs where the student is operating in (and limited to) an existing Azure resource group.  This constraint may be lifted (made optional) in the future.
+
+# From the original module README:
 
 Terraform module to deploy azure Windows or Linux virtual machines with Public IP, proximity placement group, Availability Set, boot diagnostics, data disks, and Network Security Group support. It supports existing ssh keys or generates ssh key pairs if required for Linux VM's. It creates random passwords as well if you are not providing the custom password for Windows VM's.
 
